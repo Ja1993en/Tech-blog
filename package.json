@@ -1,0 +1,21 @@
+{
+  "name": "tech-blog",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.2.1",
+    "express-handlebars": "^8.0.1",
+    "handlebars": "^4.7.8",
+    "mysql2": "^3.19.1",
+    "nodemon": "^3.1.14",
+    "sequelize": "^6.37.8"
+  }
+}
