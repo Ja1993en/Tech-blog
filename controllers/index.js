@@ -1,14 +1,9 @@
 const router = require('express').Router();
 
 const homeRoutes = require('./homeRoutes');
+const api = require('./api')
 
 router.use('/', homeRoutes);
+router.use("/api", api)
 
-router.get('/login', async (req, res) => {
-    try {
-      res.render('all'); // Removed 'await'
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
 module.exports = router 
