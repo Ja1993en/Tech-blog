@@ -7,8 +7,7 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
 
-// Create a new sequelize store using the express-session package
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
 
 
 // Sets up the Express App
@@ -25,7 +24,11 @@ const sess = {
 
 app.use(session(sess));
 
-// app.engine('handlebars', hbs.engine);
+
+
+const hbs = exphbs.create();
+
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.use(express.json());
