@@ -20,10 +20,7 @@ User.init(
             primaryKey: true,
             allowNull: false,
         },
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
+        
         username: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -32,9 +29,7 @@ User.init(
         passcode: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                len: [8],
-            },
+         
         },
     },
 
