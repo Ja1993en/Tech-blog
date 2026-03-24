@@ -1,27 +1,33 @@
-const {Post, User} = require('../models');
+const { Post, User } = require('../models');
 
 const router = require('express').Router();
 
 
 router.get('/', async (req, res) => {
-    try {
-       const dbPostData = await Post.findAll({
-        include: { model: User},
-       })
-      
-       const post =  dbPostData.map((post) => {
-         post.get({plain: true})
-       })
+  try {
+    const dbPostData = await Post.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['username']
+        },
+      ],
+    });
+    // console.log(dbPostData)
+    const post = dbPostData.map((userPost) =>
+      userPost.get({ plain: true })
+    );
+  
+console.log(post);
+    //  console.log(dbPostData);
+    res.render('homepage', {
+      post,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    res.status(500).json(err);
 
-      //  console.log(dbPostData);
-       res.render('homepage', {
-         post,
-        loggedIn: req.session.loggedIn,
-      });
-    }catch (err) {
-        res.status(500).json(err);
-        
-    }
+  }
 })
 
 router.get('/login', (req, res) => {
@@ -34,24 +40,24 @@ router.get('/login', (req, res) => {
 
 
 router.get('/signup', async (req, res) => {
-    try {
-      res.render('signup');
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
+  try {
+    res.render('signup');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-  router.get('/dashboard', async (req, res) => {
-    try {
-    
-
-      res.render('dashboard', {loggedIn: req.session.loggedIn});
+router.get('/dashboard', async (req, res) => {
+  try {
 
 
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
+    res.render('dashboard', { loggedIn: req.session.loggedIn });
+
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 
 module.exports = router;

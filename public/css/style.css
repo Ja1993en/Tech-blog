@@ -1,3 +1,12 @@
+a {
+text-decoration: none;
+color: rgb(38, 22, 0);
+}
+
+a:hover{
+    text-decoration: none;
+color: rgb(38, 22, 0);
+}
 .logout-btn {
   background-color: transparent;
   color: rgba(211, 242, 227, 0.893);
@@ -78,7 +87,7 @@ input, label, .signup-link{
     color:  rgb(38, 22, 0);
     font-size: 1.2rem;
 }
-buttoin
+
 nav {
     color:rgba(154, 195, 177, 0.893);
 }
@@ -111,15 +120,15 @@ nav {
 
 
 .home-card {
-    display: flex;
+    /* display: flex; */
     /* background-color: rgba(154, 195, 177, 0.893); */
     /* justify-content: center; */
     /* align-items: center;  */
-    display: flex;
+    /* display: flex; */
     margin-left: 35px;
     margin-right: 35px;
     margin-top: 35px;
-    flex-direction: column;
+    /* flex-direction: column; */
     border: 3px solid rgb(38, 22, 0);
 }
 
@@ -131,3 +140,11 @@ nav {
 .card-title{
     color:rgba(211, 242, 227, 0.893);
 }
+
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+  }
