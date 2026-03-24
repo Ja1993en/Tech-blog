@@ -16,7 +16,7 @@
       } else {
         alert('Failed to sign up.');
       }
-    console.log("Winner")
+   
 
     }
    

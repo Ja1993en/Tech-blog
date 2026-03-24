@@ -11,21 +11,36 @@
       <div >
       <a href="/" class="home">Home</a>
       <a href="/dashboard" class="dashbord">Dashboard</a>
+      {{#if loggedIn}}
       <button id="logout" class="btn-no-style logout-btn">Logout</button>
+     {{else}}
       <a href="/login" class="login-btn">Login</a>
+      {{/if}}
+
       </div>
     </nav>
 
     <div class="title">
+      
       <h1> The Tech Blog</h1>
     </div>
   </header>
 
 <main>
   {{{ body }}}
+
 </main>
 
 
+</div>
+ {{#if loggedIn}}
+ <div class="new-blog">
+<button class="new-blog-btn">+ New Post</button>
+ </div>
+
+
+<script src="./js/logout.js"></script>
+{{/if}}
 </body>
  
 </html>

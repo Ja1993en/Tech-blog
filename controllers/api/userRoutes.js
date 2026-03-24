@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models')
+const {Post} = require('../../models')
 
 
 router.post('/login', async (req, res) => {
@@ -41,6 +42,8 @@ try {
         username: req.body.username,
         passcode: req.body.passcode,
       });
+
+      console.log(userData);
       req.session.save(() => {
         req.session.user_id = userData.id
         req.session.loggedIn = true;
@@ -57,6 +60,7 @@ try {
 }
 
 })
+
 
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
