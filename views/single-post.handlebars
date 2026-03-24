@@ -1,5 +1,4 @@
-<div class="gallery">
-{{#each post}}
+{{#if loggedIn}}
 <section class="home-card card">
     <a href="/home/post/{{id}}">
     <div class="card-header  ">
@@ -11,12 +10,4 @@
         </div>
         </a>
 </section>
-{{/each }}
-</div>
-
-  
-    
-
-
-
-
+{{/if}}
