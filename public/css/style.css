@@ -2,11 +2,10 @@ a {
 text-decoration: none;
 color: rgb(38, 22, 0);
 }
-
 a:hover{
     text-decoration: none;
-color: rgb(38, 22, 0);
-}
+color: rgba(211, 242, 227, 0.893);
+} 
 .logout-btn {
   background-color: transparent;
   color: rgba(211, 242, 227, 0.893);
@@ -113,8 +112,8 @@ nav {
 }
 .new-blog { 
     display: flex;
-    justify-content: center; 
-    align-items: center;
+     justify-content: center; 
+    /* align-items: center;  */
 }
 
 
@@ -148,3 +147,28 @@ nav {
     /* justify-content: center;
     align-items: center; */
   }
+
+.dashboard-card {
+    background-color: antiquewhite;
+    align-items: right;
+    margin-top: 30px;
+    margin-right: 50px;
+    margin-left: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: gray;
+    color:azure;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    
+    
+}
+.date{
+    float: right;
+}
+
+.dashbord-title {
+    float: left;
+}

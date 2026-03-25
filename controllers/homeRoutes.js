@@ -1,3 +1,4 @@
+const session = require('express-session');
 const { Post, User } = require('../models');
 
 const router = require('express').Router();
@@ -106,5 +107,17 @@ console.log(posts)
   }
 });
 
+router.get('/new-post', async (req,res) =>{
+try {
+  if(!req.session.loggedIn){
+    res.redirect('/');
+  }
+
+res.render('create-post')
+}catch(err){
+  res.status(500).json(err);
+}
+
+})
 
 module.exports = router;
