@@ -11,6 +11,11 @@ const postData = [
         author_id: 2
 
     },
+    {
+        title: "MVC", 
+        description: "MVC helps by separating application code into three distinct, interconnected parts—data, user interface, and logic control to improve maintainability, scalability, and code reusability ",
+        author_id: 2,
+    }
  
 
 ];

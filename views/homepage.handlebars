@@ -1,21 +1,12 @@
-<div class="gallery">
-{{#each post}}
-<section class="home-card card">
-    <a href="/home/post/{{id}}">
-    <div class="card-header  ">
-        <h1 class="card-title">{{title}}</h1>
-        </div>
-        <div class="card-body">
-            <p>{{description}}</p>  
-        
-        </div>
-        </a>
-</section>
+<section class="gallery">
+{{#each posts as |post|}}
+{{> post}}
 {{/each }}
-</div>
+</section>
 
   
     
+
 
 
 

@@ -14,12 +14,12 @@ router.get('/', async (req, res) => {
       ],
     });
     // console.log(dbPostData)
-    const post = dbPostData.map((userPost) =>
+    const posts = dbPostData.map((userPost) =>
       userPost.get({ plain: true })
     );
 
     res.render('homepage', {
-      post,
+      posts,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
@@ -63,12 +63,10 @@ router.get('/home/post/:id', async (req, res) => {
         ],
       });
 
-      const post = dbPostData.get({ plain: true })
-
-
+      const posts = dbPostData.get({ plain: true })
 
       res.render('single-post', {
-        post,
+        posts,
         loggedIn: req.session.loggedIn,
       });
     
@@ -85,7 +83,24 @@ router.get('/dashboard', async (req, res) => {
       res.redirect('/login')
     }
 
-    res.render('dashboard', { loggedIn: req.session.loggedIn });
+    const dbPostData = await Post.findAll({
+      where: {
+        author_id: req.session.user_id,
+      },
+      include: [{
+        model: User,
+        attributes:['username']
+      }]
+    });
+
+    // const posts = dbPostData.get({ plain: true })
+     const posts = dbPostData.map(post => post.get({ plain: true }));
+  
+console.log(posts)
+      res.render('dashboard', {
+        posts,
+        loggedIn: req.session.loggedIn,
+      });
   } catch (err) {
     res.status(500).json(err);
   }
