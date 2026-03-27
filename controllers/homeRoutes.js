@@ -116,9 +116,29 @@ try {
   if(!req.session.loggedIn){
     res.redirect('/');
   }
+  const dbPostData = await Post.findByPk(req.params.id, {
+    include: [
+      {
+        model: User,
+        attributes: [
+          'username'
+        ],
+      },
+    ],
+  });
+
+  const posts = dbPostData.get({ plain: true })
+  // const posts = dbPostData.map(post => post.get({ plain: true }));
+  console.log(posts)
+
+  
 
   // const dbPostData = await Post
-  res.render('edit-post')
+ 
+  res.render('edit-post', {
+    posts,
+    loggedIn: req.session.loggedIn,
+  });
 }catch(err){
   res.status(500).json(err);
 }

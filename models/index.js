@@ -25,7 +25,7 @@ Post.hasMany(Comment, {
 })
 
 
-Comment.belongsTo(Post)
+// Comment.belongsTo(Post)
 
 module.exports = {User, Post, Comment}
 

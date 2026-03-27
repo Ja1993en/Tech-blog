@@ -5,10 +5,9 @@
     </div>
     <form class="submit-form">
       <label for="fname">Title:</label>
-      <input type="text" id="username" name="fname">
+      <input type="text" id="username" name="fname" value="{{posts.title}}"></input>
       <label>comment: </label>
-      <textarea id="comment" name="comment" rows="4">
-      </textarea>
+      <textarea id="comment" name="comment" rows="4">{{posts.description}}</textarea>
 
       <input type="submit" value="Update post" class="form-btn ">
       <input type="submit" value="Delete" class="form-btn  ">
