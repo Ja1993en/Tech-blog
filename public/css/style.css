@@ -1,19 +1,65 @@
+:root {
+    --primary-bg-color: rgba(211, 242, 227, 0.893);
+    --backgroud-color: rgb(38, 22, 0);
+    --hover-color:rgba(164, 196, 181, 0.893);
+}
+
+/* Page back ground color  */
+body { 
+    background-color: var(--primary-bg-color)
+} 
+
+/* Sets original styling for a Tags  */
 a {
 text-decoration: none;
-color: rgb(38, 22, 0);
+color: var(--primary-bg-color)
+
+/* Set styling when hover a Tag */
 }
 a:hover{
-    text-decoration: none;
-color: rgba(211, 242, 227, 0.893);
+text-decoration: none;
+color: var(--hover-color)
 } 
+/* Sets styling for logout button in header */
 .logout-btn {
   background-color: transparent;
-  color: rgba(211, 242, 227, 0.893);
+  color: var(--primary-bg-color);
   border: none;
   padding: 0;
   font-size: 1.5rem;
+
   
 }
+
+/* Syling for header  */
+header {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--backgroud-color);
+    padding-bottom: 10px;
+}
+
+/* Displays li elements side by side */
+li {
+    font-size: 30px;
+    padding-top: 10px; /* Add padding to all of the li tags */
+    list-style-type: none;  /*Removes bullets  */
+    padding-right: 20px;
+    float: left;
+    display: inline;
+  
+}
+
+
+
+/* Adjust font size for logout button */
+.logout-btn {
+    font-size: 30px;
+    color: var(--primary-bg-color);
+}
+
+
+/* Styling for The Tech Blog Title */
 .title{
     border-style: solid;
     display: inline-block; 
@@ -21,154 +67,130 @@ color: rgba(211, 242, 227, 0.893);
     border-radius: 5px;
     box-shadow: 5px 5px rgba(154, 195, 177, 0.893);
     border-color: rgba(211, 242, 227, 0.893);
-    margin-left: 20px;
+    margin-left: 30px;
     margin-bottom: 10px;
-    margin-top: 10px
+    margin-top: 10px;
+    width: 250px
 }
 
-.home, .dashbord, .login-btn {
-    color: rgba(211, 242, 227, 0.893);
-    padding-right: 40px;
-    padding-left: 10px;
-    font-size: 1.5rem;
-}
-header {
-    background-color: rgb(38, 22, 0);
-    padding: 10px;
-}  
-
-h1 {
-    color: rgb(38, 22, 0);
-    padding-left: 20px;
+/* All Pages  */
+/* Aligns each section of code to center of page */
+section { 
+    display: flex;
+    justify-content: center; /* Horizontal center */
+    flex-direction: column;     /* Vertical center */
+    padding-left: 20px; 
     padding-right: 20px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-}
-
-body { 
-    background-color: rgba(211, 242, 227, 0.893);
 }
 
 
+/* Main section of the html page 
 
-.form-style {
-    margin-top: 30px; 
-     margin-left: 30px; 
-    margin-right: 30px;
-    border: 3px solid rgb(38, 22, 0); 
+/* Template for the content box*/
+.box-template{
+    border: 3px solid var(--backgroud-color);
+    margin-top: 30px;
+    width: 100%; 
+
+}
+
+/* Template for box header styling */
+.header-template{
+    color: var(--primary-bg-color);
+    background-color: var(--backgroud-color);
+    padding-left: 10px;
+    min-height:40px;  /*Minimum height for boarder*/
+    /* float: right; */
+
+}
+
+#username {
+     float: right;
+ /* padding-top: 10px; */
+ padding: 10px 10px 0px 0px;
+  font-size: 15px;
+}
+
+.align-header {
+    display: inline-block;
+    /* display: flex;
+  align-items: center;  */
    
-   
 }
 
+
+.card-content{
+    color: var(--backgroud-color);
+}
+
+
+/* Styling for for elements */
 form {
     display: flex;
-  flex-direction: column;
-  align-items: center; /* Centers items horizontally */
-  justify-content: center;
- 
-}
-
-.log-title {
-    background-color: rgb(38, 22, 0);
-    color: rgba(211, 242, 227, 0.893);
-  
-}
-
-input, label, .signup-link{  
-    width: 100%;
-    max-width: 90%; /* Prevents the form from getting wider than 600px */
-    min-width: 300px; 
-    height: 40px;
-    border-radius: 5px;
-}
-
-.signup-link {
-    color:  rgb(38, 22, 0);
-    font-size: 1.2rem;
-}
-
-nav {
-    color:rgba(154, 195, 177, 0.893);
-}
-
-.btn { 
-    color:aliceblue;
-    background-color: gray;
-    
-}
-
-.new-blog-btn {
-    background-color: rgb(38, 22, 0);
-    color: rgba(154, 195, 177, 0.893);
-    width: 100%;
-    max-width: 300px;
-    height: 70px;
-    border-radius: 50px;
-    font-size: 35px;
-    position: absolute;
-    width: 50%;
-    bottom: 10px;
-
-}
-.new-blog { 
-    display: flex;
-     justify-content: center; 
-    /* align-items: center;  */
-}
-
-
-
-.home-card {
-    /* display: flex; */
-    /* background-color: rgba(154, 195, 177, 0.893); */
-    /* justify-content: center; */
-    /* align-items: center;  */
-    /* display: flex; */
-    margin-left: 35px;
-    margin-right: 35px;
-    margin-top: 35px;
-    /* flex-direction: column; */
-    border: 3px solid rgb(38, 22, 0);
-}
-
-.card-header { 
-    background-color: rgb(38, 22, 0);
-    color:rgba(211, 242, 227, 0.893);
-}
-
-.card-title{
-    color:rgba(211, 242, 227, 0.893);
-}
-
-
-.gallery {
-    display: flex;
     flex-direction: column;
-    /* justify-content: center;
-    align-items: center; */
-  }
-
-.dashboard-card {
-    background-color: antiquewhite;
-    align-items: right;
-    margin-top: 30px;
-    margin-right: 50px;
-    margin-left: 50px;
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    background-color: gray;
-    color:azure;
-    border-radius: 10px;
-    font-size: 1.4rem;
-    
-    
 }
-.date{
+
+/* styling for  */
+.user-link{
+    color: var(--backgroud-color)
+}
+
+/* Sets the login/signup link hover color */
+.user-link:hover {
+    color:rgb(38, 22, 0);
+}
+
+/* Sets the input field heights */
+input {
+    height: 35px;
+}
+
+/* Margin for the label in form input spacing  */
+label {
+    margin-bottom:5px ;
+}
+/* margin for both form input fields  */
+#username, #password {
+    margin-bottom: 15px;
+}
+/* Color for form submission button */
+.form-btn {
+    background-color: grey;
+    color: var(--primary-bg-color)
+}
+
+
+
+/* Dashboard CSS styling */
+.dashboard-card {
+    background-color: grey; 
+    width: 100%;
+    /* content: ""; */
+    display: table; 
+    clear: both;
+    padding:5px 10px 5px 10px;
+    margin-top: 30px;
+    border-radius: 10px;
+    height: 40px;
+    font-size: 25px;
+}
+
+
+
+/* Align dashboard title to the left of card  */
+.dashboard-title {
+    float: left;
+} 
+/* Align dashboard date to the right of card  */
+.dashboard-date {
     float: right;
 }
 
-.dashbord-title {
-    float: left;
-}
+/* Removes resizing for textarea form */
+textarea {
+    resize: none;
+  }
+
+

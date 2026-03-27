@@ -19,6 +19,7 @@ router.get('/', async (req, res) => {
       userPost.get({ plain: true })
     );
 
+    console.log()
     res.render('homepage', {
       posts,
       loggedIn: req.session.loggedIn,
@@ -35,7 +36,9 @@ router.get('/login', (req, res) => {
     res.redirect('/');
     return;
   }
+  // Otherwise, render the 'login' template
   res.render('login');
+  
 });
 
 
@@ -65,7 +68,8 @@ router.get('/home/post/:id', async (req, res) => {
       });
 
       const posts = dbPostData.get({ plain: true })
-
+      // const posts = dbPostData.map(post => post.get({ plain: true }));
+      console.log(posts)
       res.render('single-post', {
         posts,
         loggedIn: req.session.loggedIn,
@@ -107,6 +111,29 @@ console.log(posts)
   }
 });
 
+router.get('/dashboard/update-post/:id', async (req, res) => {
+try {
+  if(!req.session.loggedIn){
+    res.redirect('/');
+  }
+
+  // const dbPostData = await Post
+  res.render('edit-post')
+}catch(err){
+  res.status(500).json(err);
+}
+
+})
+
+router.get('/create-post', async (req, res) => {
+  try {
+
+    res.render('creaate-post');
+  }catch(err){
+    res.status(500).json(err);
+  }
+})
+
 router.get('/new-post', async (req,res) =>{
 try {
   if(!req.session.loggedIn){
@@ -117,7 +144,10 @@ res.render('create-post')
 }catch(err){
   res.status(500).json(err);
 }
-
 })
+
+
+
+
 
 module.exports = router;

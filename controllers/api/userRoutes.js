@@ -5,8 +5,13 @@ const {Post} = require('../../models')
 
 router.post('/login', async (req, res) => {
     try {
-        const userData = await User.findOne({ where: { username: req.body.username } })
-
+        const userData = await User.findOne({ 
+            where: 
+            { 
+                username: req.body.username
+             },
+            });
+console.log(userData);
         if (!userData) {
             res
                 .status(400)
@@ -16,10 +21,11 @@ router.post('/login', async (req, res) => {
 
         const validPassword = await userData.checkPassword(req.body.passcode);
 
-        if (validPassword == false) {
+        if (!validPassword) {
             res
                 .status(400)
                 .json({ message: 'Incorrect email or password, please try again' })
+                return;
         }
 
         req.session.save(() => {
@@ -71,5 +77,19 @@ router.post('/logout', (req, res) => {
       res.status(404).end();
     }
   });
+
+
+  router.put('/dashboard/update-post', async (req, res) => {
+    try {
+      if(!req.session.loggedIn){
+        res.redirect('/');
+      }
+    
+      res.render('edit-post')
+    }catch(err){
+      res.status(500).json(err);
+    }
+    
+    })
 
 module.exports = router

@@ -1,12 +1,14 @@
-{{#each posts}}
+
+
 <section>
-<a href="update-post">
+{{#each posts}}
+<a href="/dashboard/update-post/{{id}}">
 <div class="dashboard-card">
   <div class="display-inline-block dashboard-title">{{title}}</div>
-  <div class="display-inline-block date" >{{format_date date_published}} </div>
+  <div class="display-inline-block dashboard-date" >{{format_date date_published}} </div>
 </div>
 </a>
 
-</Section>
 {{/each}}
+</Section>
 

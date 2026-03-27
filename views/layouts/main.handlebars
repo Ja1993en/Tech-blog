@@ -7,41 +7,33 @@
 
 <body>
   <header>
-    <nav class="display-flex display-inline  align-center p-2">
-      <div >
-      <a href="/" class="home">Home</a>
-      <a href="/dashboard" class="dashbord">Dashboard</a>
-      {{#if loggedIn}}
-      <button id="logout" class="btn-no-style logout-btn">Logout</button>
-     {{else}}
-      <a href="/login" class="login-btn">Login</a>
-      {{/if}}
-
-      </div>
+    <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/dashboard">Dashbord</a></li>
+          {{#if loggedIn}}
+          <li><button class="logout-btn">Logout</button></li>
+          
+          {{else}}
+          <li><a href="/login">Login</a></li>
+          {{/if}}
+        </ul>
     </nav>
 
     <div class="title">
-      
       <h1> The Tech Blog</h1>
     </div>
   </header>
 
-<main>
-  {{{ body }}}
+  <main>
+    {{{ body }}}
 
-</main>
-
-
-</div>
- {{#if loggedIn}}
- <div class="new-blog">
-
-<button onclick="document.location='/new-post'" class="new-blog-btn">+ New Post</button>
- </div>
+  </main>
 
 
-<script src="./js/logout.js"></script>
-{{/if}}
+  </div>
+
+
 </body>
- 
+
 </html>
