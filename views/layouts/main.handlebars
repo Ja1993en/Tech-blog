@@ -13,7 +13,6 @@
           <li><a href="/dashboard">Dashbord</a></li>
           {{#if loggedIn}}
           <li><button class="logout-btn">Logout</button></li>
-          
           {{else}}
           <li><a href="/login">Login</a></li>
           {{/if}}
@@ -26,13 +25,18 @@
   </header>
 
   <main>
-    {{{ body }}}
+    <div>
 
+    
+    {{{ body }}}
+</div>
   </main>
 
 
   </div>
-
+{{#if loggedIn}}
+<script src="/js/logout.js"></script>
+{{/if}}
 
 </body>
 

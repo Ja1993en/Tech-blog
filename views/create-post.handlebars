@@ -1,3 +1,21 @@
 <section>
-    
+  <div class="box-template">
+    <div class="header-template">
+      <h3>Create New Post</h3>
+    </div>
+    <form class="create-form">
+      <label for="fname">Title:</label>
+      <input type="text" id="title" name="fname" value="{{posts.title}}"></input>
+      <label>comment: </label>
+      <textarea id="comment" name="comment" rows="4">{{posts.description}}</textarea>
+      <button type="submit" class="form-btn update-post ">Create</input>
+    </form>
+  </div>
 </section>
+
+<div>
+    <a class="new-post-btn" href="/dashboard/create-post">+ New Post<a>
+  </div>
+ <script src="/js/create-post.js"></script>
+
+  

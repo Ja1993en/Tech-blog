@@ -3,16 +3,22 @@
     <div class="header-template">
       <h3>Edit post</h3>
     </div>
-    <form class="submit-form">
+    <form class="update-form">
       <label for="fname">Title:</label>
-      <input type="text" id="username" name="fname" value="{{posts.title}}"></input>
+      <input type="text" id="title" name="fname" value="{{posts.title}}"></input>
       <label>comment: </label>
       <textarea id="comment" name="comment" rows="4">{{posts.description}}</textarea>
 
-      <input type="submit" value="Update post" class="form-btn ">
-      <input type="submit" value="Delete" class="form-btn  ">
+      <button type="submit" class="form-btn update-post ">Update post</button>
+      <button type="button"  class="form-btn delete ">Delete</button>
     </form>
   </div>
   
-  <script src="/js/login.js"></script>
+  <script src="/js/update-post.js"></script>
 </section>
+
+
+
+  <footer>
+    <a href="/dashboard/create-post">+ New Post</a>
+  </footer>

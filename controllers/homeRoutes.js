@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
         },
       ],
     });
-    // console.log(dbPostData)
+    
     const posts = dbPostData.map((userPost) =>
       userPost.get({ plain: true })
     );
@@ -50,7 +50,7 @@ router.get('/signup', async (req, res) => {
   }
 });
 
-router.get('/home/post/:id', async (req, res) => {
+router.get('/post/:id', async (req, res) => {
   try {
     if (!req.session.loggedIn) {
       res.redirect('/login');
@@ -69,7 +69,7 @@ router.get('/home/post/:id', async (req, res) => {
 
       const posts = dbPostData.get({ plain: true })
       // const posts = dbPostData.map(post => post.get({ plain: true }));
-      console.log(posts)
+ 
       res.render('single-post', {
         posts,
         loggedIn: req.session.loggedIn,
@@ -81,90 +81,6 @@ router.get('/home/post/:id', async (req, res) => {
   }
 })
 
-router.get('/dashboard', async (req, res) => {
-  try {
-
-    if(!req.session.loggedIn){
-      res.redirect('/login')
-    }
-
-    const dbPostData = await Post.findAll({
-      where: {
-        author_id: req.session.user_id,
-      },
-      include: [{
-        model: User,
-        attributes:['username']
-      }]
-    });
-
-    // const posts = dbPostData.get({ plain: true })
-     const posts = dbPostData.map(post => post.get({ plain: true }));
-  
-console.log(posts)
-      res.render('dashboard', {
-        posts,
-        loggedIn: req.session.loggedIn,
-      });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get('/dashboard/update-post/:id', async (req, res) => {
-try {
-  if(!req.session.loggedIn){
-    res.redirect('/');
-  }
-  const dbPostData = await Post.findByPk(req.params.id, {
-    include: [
-      {
-        model: User,
-        attributes: [
-          'username'
-        ],
-      },
-    ],
-  });
-
-  const posts = dbPostData.get({ plain: true })
-  // const posts = dbPostData.map(post => post.get({ plain: true }));
-  console.log(posts)
-
-  
-
-  // const dbPostData = await Post
- 
-  res.render('edit-post', {
-    posts,
-    loggedIn: req.session.loggedIn,
-  });
-}catch(err){
-  res.status(500).json(err);
-}
-
-})
-
-router.get('/create-post', async (req, res) => {
-  try {
-
-    res.render('creaate-post');
-  }catch(err){
-    res.status(500).json(err);
-  }
-})
-
-router.get('/new-post', async (req,res) =>{
-try {
-  if(!req.session.loggedIn){
-    res.redirect('/');
-  }
-
-res.render('create-post')
-}catch(err){
-  res.status(500).json(err);
-}
-})
 
 
 

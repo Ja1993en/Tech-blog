@@ -49,7 +49,7 @@ try {
         passcode: req.body.passcode,
       });
 
-      console.log(userData);
+    
       req.session.save(() => {
         req.session.user_id = userData.id
         req.session.loggedIn = true;
@@ -69,7 +69,7 @@ try {
 
 
 router.post('/logout', (req, res) => {
-    console.log("We are in")
+
     if (req.session.loggedIn) {
       req.session.destroy(() => {
         res.status(204).end();
@@ -78,7 +78,6 @@ router.post('/logout', (req, res) => {
       res.status(404).end();
     }
   });
-
 
 
 

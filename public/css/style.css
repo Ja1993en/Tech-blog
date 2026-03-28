@@ -6,7 +6,8 @@
 
 /* Page back ground color  */
 body { 
-    background-color: var(--primary-bg-color)
+    background-color: var(--primary-bg-color);
+    
 } 
 
 /* Sets original styling for a Tags  */
@@ -124,6 +125,7 @@ section {
 }
 
 
+
 /* Styling for for elements */
 form {
     display: flex;
@@ -152,13 +154,16 @@ label {
     margin-bottom:5px ;
 }
 /* margin for both form input fields  */
-#username, #password {
+#username {
     margin-bottom: 15px;
 }
 /* Color for form submission button */
 .form-btn {
     background-color: grey;
-    color: var(--primary-bg-color)
+    color: var(--primary-bg-color);
+    margin-top: 10px;
+    font-size: 20px;
+
 }
 
 
@@ -191,6 +196,21 @@ label {
 /* Removes resizing for textarea form */
 textarea {
     resize: none;
+    margin-bottom: 5px;
+    height: 150px
   }
+  
+
+.new-post-btn {
+
+    background-color: var(--backgroud-color);
+    padding: 15px 15px 15px 15px;
+    border-radius: 5px;
+    font-size: 25px;
+    /* position:absolute; */
+    position:absolute;
+    bottom: 3%;
+    right: 44%;
+}
 
 
