@@ -1,6 +1,6 @@
 const session = require('express-session');
-const { Post, User } = require('../models');
-
+const { Post, User, Comment } = require('../models');
+const withAuth = require('../utils/auth');
 const router = require('express').Router();
 
 
@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
         },
       ],
     });
-    
+    // console.log(dbPostData)
     const posts = dbPostData.map((userPost) =>
       userPost.get({ plain: true })
     );
@@ -50,40 +50,43 @@ router.get('/signup', async (req, res) => {
   }
 });
 
-router.get('/post/:id', async (req, res) => {
+
+
+
+
+router.get('/post/:id', withAuth, async (req, res) => {
   try {
-    if (!req.session.loggedIn) {
-      res.redirect('/login');
-      return;
-    }
-      const dbPostData = await Post.findByPk(req.params.id, {
+    // if (!req.session.loggedIn) {
+    //   res.redirect('/login');
+    //   return;
+    // }
+  
+  const dbPostData = await Post.findByPk(req.params.id, {
+    include: [
+      {
+        model: User,
+        attributes: ['username'],
+      },
+      {
+        model: Comment,
         include: [
           {
             model: User,
-            attributes: [
-              'username'
-            ],
+            attributes: ['username'],
           },
         ],
-      });
-
-      const posts = dbPostData.get({ plain: true })
-      // const posts = dbPostData.map(post => post.get({ plain: true }));
- 
-      res.render('single-post', {
-        posts,
-        loggedIn: req.session.loggedIn,
-      });
-    
-
-  } catch (err) {
-    res.status(500).json(err);
+      },
+    ],
+  });
+  const posts = dbPostData.get({ plain: true })
+  console.log(posts)
+  res.render('single-post', {
+    posts,
+    loggedIn: req.session.loggedIn,
+  })
+  }catch(err){
+    res.status(500).json(err)
   }
 })
-
-
-
-
-
 
 module.exports = router;

@@ -1,5 +1,6 @@
-{{#if loggedIn}}
+
 <section>
+
     <div class="box-template">
         <div class="header-template">
             <h1 class="align-header">{{posts.title}}</h1>
@@ -11,6 +12,9 @@
     </div>
 
 
+{{#each posts.comments as |comments|}}
+{{> comment}}
+{{/each }} 
 
 
 
@@ -28,7 +32,8 @@
     </div>
 
     </div>
+
 </section>
-{{/if}}
+
 
 <script src="/js/comment-post.js"></script>

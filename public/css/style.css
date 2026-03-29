@@ -122,6 +122,9 @@ section {
 
 .card-content{
     color: var(--backgroud-color);
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 10px 10px ;
 }
 
 
@@ -147,6 +150,7 @@ form {
 /* Sets the input field heights */
 input {
     height: 35px;
+   
 }
 
 /* Margin for the label in form input spacing  */

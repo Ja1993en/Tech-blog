@@ -1,15 +1,11 @@
 const router = require('express').Router();
 const { User } = require('../models')
 const { Post } = require('../models')
-
+const withAuth = require('../utils/auth');
 
 // Dashboard route
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
-
-    if (!req.session.loggedIn) {
-      res.redirect('/login')
-    }
 
     const dbPostData = await Post.findAll({
       where: {
@@ -35,12 +31,9 @@ router.get('/', async (req, res) => {
 });
 
 
-router.get('/create-post', async (req,res) => {
+router.get('/create-post', withAuth, async (req,res) => {
 try {
-  if (!req.session.loggedIn) {
-    res.redirect('/');
-
-  }
+  
   res.render('create-post')
 }catch(err){
   res.status(500).json(err)
@@ -50,11 +43,9 @@ try {
 
 
 
-router.get('/update-post/:id', async (req, res) => {
+router.get('/update-post/:id', withAuth,  async (req, res) => {
   try {
-    if (!req.session.loggedIn) {
-      res.redirect('/');
-    }
+  
     const dbPostData = await Post.findByPk(req.params.id, {
       include: [
         {
