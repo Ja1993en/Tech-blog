@@ -4,8 +4,6 @@
     var pathArray = window.location.pathname.split('/');
     var id = pathArray[3];
 
-
-console.log(id)
     const title = document.querySelector('#title').value.trim();
     const content = document.querySelector('#comment').value.trim();
  console.log(title + content)

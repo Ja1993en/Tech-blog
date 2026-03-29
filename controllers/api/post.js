@@ -27,7 +27,7 @@ router.put('/:id', async (req, res) => {
 
 
   router.post('/create-post', async (req, res) => {
-console.log("We hit it ")
+
     console.log(req.body)
     const createPost = await Post.create(
         { 
@@ -41,13 +41,14 @@ console.log("We hit it ")
   }) 
 
   router.delete('/:id', async (req,res) => {
-    const deletePost = await Post.destroy(
-        {
-           where: {
-              id: req.params.id,
-            },
-         }
-      )
-  })
-
+    console.log('it was it ')
+  const deletePost = await Post.destroy(
+      {
+         where: {
+            id: req.params.id,
+          },
+       }
+    )
+    res.json(deletePost);
+})
   module.exports = router

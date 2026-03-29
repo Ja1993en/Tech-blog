@@ -17,7 +17,7 @@
       if (response.ok) {
         document.location.replace('/dashboard');
       } else {
-        alert('Failed to update post');
+        alert('Failed to create post');
       }
    
  
