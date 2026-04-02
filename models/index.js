@@ -32,9 +32,7 @@ Comment.belongsTo(Post,{
     foreignKey: 'post_id',
  })
 
-Post.belongsTo(User, {
-    foreignKey: 'author_id',
-  });
+
   
 
 

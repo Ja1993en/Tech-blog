@@ -6,37 +6,35 @@
 </head>
 
 <body>
-  <header>
-    <nav>
+  
+    <header>
+      <nav>
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/dashboard">Dashbord</a></li>
+          <li><a href="/dashboard">Dashboard</a></li>
           {{#if loggedIn}}
           <li><button class="logout-btn">Logout</button></li>
           {{else}}
           <li><a href="/login">Login</a></li>
           {{/if}}
         </ul>
-    </nav>
+      </nav>
 
-    <div class="title">
-      <h1> The Tech Blog</h1>
-    </div>
-  </header>
+      <div class="title">
+        <h1> The Tech Blog</h1>
+      </div>
+    </header>
 
-  <main>
-    <div>
+    <main>
+      {{{ body }}}
 
-    
-    {{{ body }}}
-</div>
-  </main>
+    </main>
 
 
   </div>
-{{#if loggedIn}}
-<script src="/js/logout.js"></script>
-{{/if}}
+  {{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 
 </body>
 
